@@ -129,7 +129,7 @@ export default function App() {
     <div className="absolute w-60 h-60 bg-orange-100/70 rounded-full blur-3xl -z-10"></div>
 
     <img 
-      src="../public/aiGirl (1).png" className="w-full h-auto max-h-[350px] object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
+      src="/aiGirl (1).png" className="w-full h-auto max-h-[350px] object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
     />
 
   </div>
