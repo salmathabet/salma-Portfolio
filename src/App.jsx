@@ -12,7 +12,8 @@ import {
   Layout, 
   Layers, 
   GraduationCap, 
-  ArrowUpRight
+  ArrowUpRight,
+  Database
 } from 'lucide-react';
 
 // eslint-disable-next-line react/prop-types
@@ -23,7 +24,6 @@ const GithubIcon = ({ size = 18 }) => (
   </svg>
 );
 
-// eslint-disable-next-line react/prop-types
 const LinkedinIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -31,6 +31,102 @@ const LinkedinIcon = ({ size = 18 }) => (
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
+
+const BAITY_LIVE_URL = 'https://baity-store.vercel.app/';
+
+const HeroVisual = () => (
+  <div className="relative w-full max-w-sm aspect-square flex items-center justify-center">
+    <div className="absolute w-64 h-64 bg-orange-200/60 rounded-full blur-3xl -z-10"></div>
+
+    {/* Browser window */}
+    <div className="w-[85%] bg-white rounded-2xl border border-zinc-200 shadow-xl overflow-hidden animate-float">
+      <div className="flex items-center gap-1.5 px-3 py-2 bg-zinc-50 border-b border-zinc-100">
+        <span className="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+        <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+        <span className="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+        <span className="ml-2 flex-1 text-[10px] font-mono text-zinc-400 bg-white border border-zinc-100 rounded-md px-2 py-0.5 truncate">
+          baity-store.vercel.app
+        </span>
+      </div>
+      <div className="p-3 space-y-2.5" dir="rtl">
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-black text-[#6B2D5C]">بيتي</span>
+          <div className="flex gap-1">
+            <span className="w-8 h-1.5 rounded-full bg-zinc-200"></span>
+            <span className="w-6 h-1.5 rounded-full bg-zinc-200"></span>
+            <span className="w-7 h-1.5 rounded-full bg-zinc-200"></span>
+          </div>
+        </div>
+        <div className="rounded-xl bg-gradient-to-l from-[#6B2D5C] to-[#9B4D86] p-3 text-white">
+          <p className="text-[11px] font-bold">كل اللي بيتك محتاجه</p>
+          <span className="inline-block mt-1.5 text-[9px] bg-[#F5EDE3] text-[#6B2D5C] px-2 py-0.5 rounded-full font-bold">تسوقي دلوقتي</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          {['bg-[#F5EDE3]', 'bg-orange-50', 'bg-zinc-100'].map((c, i) => (
+            <div key={i} className="space-y-1">
+              <div className={`aspect-square rounded-lg ${c}`}></div>
+              <div className="h-1.5 w-3/4 rounded-full bg-zinc-200"></div>
+              <div className="h-1.5 w-1/2 rounded-full bg-[#6B2D5C]/40"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Floating code card */}
+    <div className="absolute -bottom-2 -left-4 sm:-left-8 bg-zinc-900 text-[10px] font-mono rounded-xl px-3 py-2.5 shadow-xl leading-relaxed animate-float-delayed">
+    <p><span className="text-pink-400">const</span> <span className="text-sky-300">dev</span> <span className="text-zinc-400">=</span> &#123;</p>
+    <p className="pl-3"><span className="text-zinc-300">name:</span> <span className="text-orange-300">&apos;Salma&apos;</span>,</p>
+    <p className="pl-3"><span className="text-zinc-300">loves:</span> <span className="text-orange-300">&apos;clean UI&apos;</span></p>
+    <p>&#125;;</p>
+  </div>
+
+    {/* Tech badges */}
+    <span className="absolute top-4 -right-2 bg-white border border-zinc-200 shadow-md rounded-full px-3 py-1 text-[11px] font-bold text-sky-600 animate-float-delayed">React</span>
+    <span className="absolute top-1/2 -right-6 bg-white border border-zinc-200 shadow-md rounded-full px-3 py-1 text-[11px] font-bold text-teal-600 animate-float">Tailwind</span>
+    <span className="absolute top-2 left-0 bg-white border border-zinc-200 shadow-md rounded-full px-3 py-1 text-[11px] font-bold text-emerald-600 animate-float">Supabase</span>
+  </div>
+);
+
+const projects = [
+  {
+    title: 'Baity – Arabic E-commerce Store',
+    category: 'React • Tailwind • Supabase',
+    featured: true,
+    liveUrl: BAITY_LIVE_URL,
+    points: [
+      'Full Arabic (RTL) online store for clothes and home goods with men, women, kids and home categories.',
+      'Real backend on Supabase: user sign-up / login, products and orders stored in a live database.',
+      'Admin dashboard for adding and managing products, separate from the customer storefront.',
+      'Responsive plum & cream UI built with reusable React components and Tailwind CSS.',
+      'Deployed on Vercel with environment-based configuration.',
+    ],
+    tags: ['React', 'Tailwind CSS', 'Supabase', 'Auth', 'Admin Dashboard', 'RTL', 'Vercel'],
+  },
+  {
+    title: 'BOD – Meeting Management System',
+    category: 'SharePoint On-Premises & JavaScript',
+    points: [
+      'Developed front-end interfaces for meeting creation, calendar views, and agenda management, integrating with APIs.',
+      'Built and styled the approval workflow UI for meeting agendas across all stage transitions.',
+      'Implemented report generation triggers for direct PDF downloads from the SharePoint interface.',
+      'Utilized SharePoint list forms and CAML queries for optimized data rendering and faster page loads.',
+      'Diagnosed FBA/NTLM URL context mismatches, resolving cross-authentication integration issues.',
+    ],
+    tags: ['SharePoint', 'JavaScript', 'jQuery', 'Approval Workflows', 'PDF Export'],
+  },
+  {
+    title: 'Insider – HR Management System',
+    category: 'SharePoint & JavaScript',
+    points: [
+      'Developed front-end forms and list views for employee attendance, leave, and travel requests within a SharePoint portal.',
+      'Built employee balance dashboards and self-service portals for IT and office item requests.',
+      'Designed finance request interfaces for loans and salary advances with real-time approval status tracking.',
+      'Ensured responsive and consistent UI/UX across all request modules for various client departments.',
+    ],
+    tags: ['SharePoint', 'JavaScript', 'HR Portal', 'UI/UX', 'Dashboard', 'Workflows'],
+  },
+];
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -44,7 +140,7 @@ export default function App() {
   ];
 
   return (
-    <div className="h-screen w-screen bg-[#FAFAFA] text-zinc-900 font-sans flex flex-col items-center justify-between p-4 sm:p-6 overflow-hidden selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen md:h-screen w-full bg-[#FAFAFA] text-zinc-900 font-sans flex flex-col items-center justify-between p-4 sm:p-6 md:overflow-hidden selection:bg-orange-500 selection:text-white">
       
       {/* Top Floating Navbar */}
       <header className="w-full flex justify-center z-50">
@@ -55,14 +151,14 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   isActive 
                     ? 'bg-zinc-900 text-white shadow-md' 
                     : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'
                 }`}
               >
                 {item.icon}
-                <span>{item.label}</span>
+                <span className="hidden sm:inline">{item.label}</span>
               </button>
             );
           })}
@@ -123,19 +219,10 @@ export default function App() {
               </div>
             </div>
             
-<div className="md:col-span-5 flex justify-center items-center">
-  <div className="w-full max-w-xs sm:max-w-sm relative flex items-center justify-center p-2">
-    
-    <div className="absolute w-60 h-60 bg-orange-100/70 rounded-full blur-3xl -z-10"></div>
-
-    <img 
-      src="/aiGirl (1).png" className="w-full h-auto max-h-[350px] object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300"
-    />
-
-  </div>
-</div>
-
-  </div>
+<div className="md:col-span-5 flex justify-center items-center py-6 md:py-0">
+              <HeroVisual />
+            </div>
+          </div>
         )}
 
         {/* Tab 2: About */}
@@ -147,7 +234,7 @@ export default function App() {
             </div>
             
             <p className="text-zinc-600 text-sm leading-relaxed">
-              Junior Frontend Developer passionate about building user-friendly interfaces. Proficient in React, HTML, and CSS, with a strong focus on writing clean and maintainable code. Skilled in using Git for version control and Vercel for deployment.
+              Junior Frontend Developer passionate about building user-friendly interfaces. Proficient in React, Tailwind CSS, HTML, and CSS, with a strong focus on writing clean and maintainable code. Recently built and shipped a full e-commerce store with a real Supabase backend, and comfortable using Git for version control and Vercel for deployment.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-zinc-100">
@@ -166,70 +253,63 @@ export default function App() {
         )}
 
         {/* Tab 3: Projects */}
-{activeTab === 'projects' && (
-  <div className="w-full max-w-4xl space-y-4 animate-slide-right overflow-y-auto max-h-[75vh] pr-2">
-    <h2 className="text-2xl font-bold text-zinc-900 mb-4">Key Projects</h2>
-    
-    <div className="grid grid-cols-1 gap-4">
-      
-      {/* Project 1: BOD */}
-      <div className="bg-white rounded-3xl border border-zinc-200/80 p-6 shadow-sm hover:border-orange-200 transition-all space-y-3">
-        <div className="flex flex-wrap justify-between items-start gap-2">
-          <div>
-            <span className="text-[10px] font-mono bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full font-bold">
-              SharePoint On-Premises & JavaScript
-            </span>
-            <h3 className="text-lg font-bold text-zinc-900 mt-1">BOD – Meeting Management System</h3>
+        {activeTab === 'projects' && (
+          <div className="w-full max-w-4xl space-y-4 overflow-y-auto max-h-[75vh] pr-2">
+            <h2 className="text-2xl font-bold text-zinc-900 mb-4">Key Projects</h2>
+
+            <div className="grid grid-cols-1 gap-4">
+              {projects.map((p) => (
+                <div
+                  key={p.title}
+                  className={`bg-white rounded-3xl border p-6 shadow-sm transition-all space-y-3 ${
+                    p.featured ? 'border-orange-300 ring-4 ring-orange-50' : 'border-zinc-200/80 hover:border-orange-200'
+                  }`}
+                >
+                  <div className="flex flex-wrap justify-between items-start gap-3">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] font-mono bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full font-bold">
+                          {p.category}
+                        </span>
+                        {p.featured && (
+                          <span className="text-[10px] bg-zinc-900 text-white px-2.5 py-0.5 rounded-full font-bold">
+                            ★ Featured
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-lg font-bold text-zinc-900 mt-1">{p.title}</h3>
+                    </div>
+
+                    {p.liveUrl && (
+                      <a
+                        href={p.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-4 py-2 rounded-xl bg-zinc-900 text-white text-xs font-semibold hover:bg-orange-600 transition-all shadow-sm flex items-center gap-1.5"
+                      >
+                        Try it live <ArrowUpRight size={14} />
+                      </a>
+                    )}
+                  </div>
+
+                  <ul className="text-zinc-600 text-xs space-y-1.5 list-disc list-inside leading-relaxed">
+                    {p.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {p.tags.map((tech) => (
+                      <span key={tech} className="text-[10px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-md font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <ul className="text-zinc-600 text-xs space-y-1.5 list-disc list-inside leading-relaxed">
-          <li>Developed front-end interfaces for meeting creation, calendar views, and agenda management, integrating with APIs.</li>
-          <li>Built and styled the approval workflow UI for meeting agendas across all stage transitions.</li>
-          <li>Implemented report generation triggers for direct PDF downloads from the SharePoint interface.</li>
-          <li>Utilized SharePoint list forms and CAML queries for optimized data rendering and faster page loads.</li>
-          <li>Diagnosed FBA/NTLM URL context mismatches, resolving cross-authentication integration issues.</li>
-        </ul>
-
-        <div className="flex flex-wrap gap-1.5 pt-2">
-          {['SharePoint', 'JavaScript', 'Jquery', 'Approval Workflows', 'PDF Export'].map((tech, idx) => (
-            <span key={idx} className="text-[10px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-md font-medium">
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Project 2: Insider */}
-      <div className="bg-white rounded-3xl border border-zinc-200/80 p-6 shadow-sm hover:border-orange-200 transition-all space-y-3">
-        <div className="flex flex-wrap justify-between items-start gap-2">
-          <div>
-            <span className="text-[10px] font-mono bg-orange-100 text-orange-700 px-2.5 py-0.5 rounded-full font-bold">
-              SharePoint & JavaScript
-            </span>
-            <h3 className="text-lg font-bold text-zinc-900 mt-1">Insider – HR Management System</h3>
-          </div>
-        </div>
-
-        <ul className="text-zinc-600 text-xs space-y-1.5 list-disc list-inside leading-relaxed">
-          <li>Developed front-end forms and list views for employee attendance, leave, and travel requests within a SharePoint portal.</li>
-          <li>Built employee balance dashboards and self-service portals for IT and office item requests.</li>
-          <li>Designed finance request interfaces for loans and salary advances with real-time approval status tracking.</li>
-          <li>Ensured responsive and consistent UI/UX across all request modules for various client departments.</li>
-        </ul>
-
-        <div className="flex flex-wrap gap-1.5 pt-2">
-          {['SharePoint', 'JavaScript', 'HR Portal', 'UI/UX', 'Dashboard', 'Workflows'].map((tech, idx) => (
-            <span key={idx} className="text-[10px] bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded-md font-medium">
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      </div>
-    </div>
-  )}
+        )}
 
         {/* Tab 4: Experience & Skills */}
         {activeTab === 'experience' && (
@@ -269,7 +349,8 @@ export default function App() {
                   { name: 'React.js', icon: <Code2 size={16} /> },
                   { name: 'JavaScript', icon: <Terminal size={16} /> },
                   { name: 'HTML5 & CSS3', icon: <Layout size={16} /> },
-                  { name: 'Bootstrap', icon: <Layers size={16} /> },
+                  { name: 'Tailwind CSS', icon: <Layers size={16} /> },
+                  { name: 'Supabase', icon: <Database size={16} /> },
                   { name: 'Git & GitHub', icon: <GithubIcon size={16} /> },
                   { name: 'Vite / Vercel', icon: <FolderGit2 size={16} /> },
                   { name: 'SharePoint', icon: <Briefcase size={16} /> },

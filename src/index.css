@@ -14,3 +14,23 @@
 .animate-slide-right {
   animation: slideRightFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: floatY 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatY 5s ease-in-out 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delayed,
+  .animate-slide-right {
+    animation: none;
+  }
+}
